@@ -12,12 +12,16 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from "@angular/material";
 import { MatButtonModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
 // Module for pagination.
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ConfirmationalDialogComponent } from './Components/shared-components/confirmational-dialog/confirmational-dialog.component';
+import { AddUpdatePostOfficeDialogComponent } from './Components/shared-components/add-update-post-office-dialog/add-update-post-office-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { ConfirmationalDialogComponent } from './Components/shared-components/co
     PostOfficeComponent,
     AppHeaderComponent,
     ConfirmationalDialogComponent,
+    AddUpdatePostOfficeDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,10 @@ import { ConfirmationalDialogComponent } from './Components/shared-components/co
     NgxPaginationModule,
     MatDialogModule,
     NoopAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   entryComponents: [
     ConfirmationalDialogComponent,
