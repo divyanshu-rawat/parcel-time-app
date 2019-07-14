@@ -4,11 +4,11 @@
         <input matInput required [placeholder]="officeNamePlaceholder" [(ngModel)]="postOfficeName">
     </mat-form-field>
     <mat-form-field>
-        <input matInput required [placeholder]="officeCodePlaceholder" [(ngModel)]="PLZ">
+        <input matInput required [placeholder]="postalCodePlaceholder" [(ngModel)]="PLZ">
     </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button [disabled]="!postOfficeName || !PLZ" class="post-office-add-edit-btn" (click)="addPostOffice()">{{
-        buttonText }}</button>
+        dialogButtonText }}</button>
     <button mat-button type="button" mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

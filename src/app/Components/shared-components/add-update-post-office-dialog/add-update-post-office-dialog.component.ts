@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -8,9 +8,30 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class AddUpdatePostOfficeDialogComponent implements OnInit {
 
-  constructor() { }
+  private operation: string;  // String that determines whether user is trying to updat/add postoffice.
+
+  private dialogTitle: string; // Title varies as per operation-performed.
+  private postOfficeName: string;
+  private PLZ: string;
+  private officeNamePlaceholder: string;
+  private postalCodePlaceholder: string;
+  private dialogButtonText: string;  // String that is used to determine text of dialog-box button, varies as per operation performed.
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<AddUpdatePostOfficeDialogComponent>,
+  ) { }
 
   ngOnInit() {
+    if (this.data.type == 'Add') {
+      this.dialogButtonText = 'Add';
+      this.operation = 'Add';
+      this.officeNamePlaceholder = 'Add Post Office';
+      this.postalCodePlaceholder = 'Add Postal Code';
+    }
   }
 
+  addPostOffice() {
+    this.dialogRef.close({ event: this.operation, data: { name: this.postOfficeName, PLZ: this.PLZ } });
+  }
 }

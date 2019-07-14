@@ -47,6 +47,7 @@ import { AddUpdatePostOfficeDialogComponent } from './Components/shared-componen
   ],
   entryComponents: [
     ConfirmationalDialogComponent,
+    AddUpdatePostOfficeDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ConfirmationalDialogComponent } from '../../Components/shared-components/confirmational-dialog/confirmational-dialog.component';
+import { AddUpdatePostOfficeDialogComponent } from '../../Components/shared-components/add-update-post-office-dialog/add-update-post-office-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,15 @@ export class DialogService {
       width: '300px',
       data: { dialogTitle: 'Delete Post Office', dialogText: "Are you sure?" }
     });
+    return dialogRef;
+  }
+
+  public openPostOfficeDialog(postOfficeData?) {
+    let dialogRef: MatDialogRef<any, any>;
+      dialogRef = this.dialog.open(AddUpdatePostOfficeDialogComponent, {
+        width: '300px',
+        data: { dialogTitle: 'Add Post Office', type: "Add" }
+      });
     return dialogRef;
   }
 }
