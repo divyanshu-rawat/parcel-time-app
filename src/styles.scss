@@ -17,12 +17,15 @@ p {
 $primary-color: #347cff;
 $text-white: rgb(255, 255, 255);
 $text-dark-white: rgb(223, 222, 222);
-
+$text-red: rgb(255, 0, 0);
 // global padding
 $app-padding: 1rem;
 
 // global font-sizes
 $small-font-size: 12px;
+
+$card-bg: #fafafa;
+$border-color: #dcdcdc;
 
 // global flex browser specific layouts
 .flex-row {
@@ -50,6 +53,7 @@ $small-font-size: 12px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  justify-content: center;
 }
 
 // global mixin
@@ -59,4 +63,38 @@ $small-font-size: 12px;
   height: $size;
   width: $size;
   line-height: $size;
+}
+
+.bottom-wrapper {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-top: 1px solid $border-color;
+  .edit-btn,
+  .delete-btn {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0.7rem;
+    cursor: pointer;
+    &:hover {
+      background: $border-color;
+    }
+  }
+  .edit-btn {
+    border-right: 1px solid $border-color;
+    color: $primary-color !important;
+    .edit-icon {
+      color: $primary-color !important;
+      margin-right: 2px;
+    }
+  }
+
+  .delete-btn {
+    color: $text-red !important;
+    .delete-icon {
+      color: $text-red !important;
+      margin-right: 2px;
+    }
+  }
 }
