@@ -28,6 +28,13 @@ export class AddUpdatePostOfficeDialogComponent implements OnInit {
       this.operation = 'Add';
       this.officeNamePlaceholder = 'Add Post Office';
       this.postalCodePlaceholder = 'Add Postal Code';
+    }else {
+      this.officeNamePlaceholder = "Edit Post Office";
+      this.postalCodePlaceholder = 'Edit Postal Code';
+      this.postOfficeName = this.data.defaultData.name;
+      this.PLZ = this.data.defaultData.PLZ;
+      this.operation = 'Edit';
+      this.dialogButtonText = 'Update';
     }
   }
 

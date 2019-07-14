@@ -46,4 +46,16 @@ export class PostOfficeComponent implements OnInit {
       }
     });
   }
+
+  private updatePostOffice(postOffice) {
+    const dialogRef = this.dialogService.openPostOfficeDialog(postOffice);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Edit'){
+        this.postOfficeService.updatePostOffice(postOffice.id, result.data).subscribe(postoffices => {
+          this.postOffices = postoffices;
+        });
+      }
+    });
+  }
+
 }

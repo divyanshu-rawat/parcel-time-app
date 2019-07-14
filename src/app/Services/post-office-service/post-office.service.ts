@@ -37,6 +37,13 @@ export class PostOfficeService {
     );
   }
 
+  updatePostOffice(id, result): Observable<postOffice[]> {
+    return this.http.post<postOffice[]>(this.apiurl + 'update/' + id, result, this.httpOptions ).pipe(
+      tap(data => data),
+      catchError(this.handleError)
+    );
+  }
+
   // Function to handle errors in case any occurs.
   private handleError(error: any) {
     console.error(error);

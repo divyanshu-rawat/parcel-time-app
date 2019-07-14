@@ -20,10 +20,18 @@ export class DialogService {
 
   public openPostOfficeDialog(postOfficeData?) {
     let dialogRef: MatDialogRef<any, any>;
+    if (postOfficeData) {
+      dialogRef = this.dialog.open(AddUpdatePostOfficeDialogComponent, {
+        width: '300px',
+        data: { dialogTitle: 'Edit Post Office', type: "Edit", defaultData: postOfficeData }
+      });
+    } else {
       dialogRef = this.dialog.open(AddUpdatePostOfficeDialogComponent, {
         width: '300px',
         data: { dialogTitle: 'Add Post Office', type: "Add" }
       });
+    }
+
     return dialogRef;
   }
 }
