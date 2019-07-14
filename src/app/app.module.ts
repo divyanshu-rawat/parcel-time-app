@@ -7,10 +7,13 @@ import { ShipmentComponent } from './Components/shipment/shipment.component';
 import { PostOfficeComponent } from './Components/post-office/post-office.component';
 import { AppHeaderComponent } from './Components/app-header/app-header.component';
 
+// Module for matIcons.
 import { MatIconModule } from '@angular/material/icon';
 
 import { HttpClientModule } from '@angular/common/http';
 
+// Module for pagination.
+import { NgxPaginationModule } from 'ngx-pagination'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

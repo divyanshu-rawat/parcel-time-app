@@ -9,6 +9,7 @@ import { postOffice } from '../../Interfaces/postOffice';
 })
 export class PostOfficeComponent implements OnInit {
 
+  private p: number = 1;
   private postOffices: postOffice[] = [];
   constructor(private postOfficeService: PostOfficeService) { }
 

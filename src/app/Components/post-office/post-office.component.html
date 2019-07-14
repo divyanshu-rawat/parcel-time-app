@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="post-offices-wrapper flex flex-center">
-    <div *ngFor="let postOffice of postOffices" class="post-office-wrapper flex flex-col">
+    <div *ngFor="let postOffice of postOffices | paginate: { itemsPerPage: 8, currentPage: p }" class="post-office-wrapper flex flex-col">
       <div class="top-wrapper">
         <h2 class="post-office-name">{{ postOffice.name }}</h2>
         <p class="post-office-plz"> Postal Code: {{ postOffice.PLZ }}</p>
@@ -24,5 +24,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="pagination-wrapper">
+    <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
   </div>
 </div>
