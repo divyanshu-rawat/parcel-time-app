@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~material-design-icons/iconfont/material-icons.css";
 
 h1,
 h2,
@@ -9,4 +11,52 @@ h6,
 p {
   margin: 0;
   padding: 0;
+}
+
+// global-colors
+$primary-color: #347cff;
+$text-white: rgb(255, 255, 255);
+$text-dark-white: rgb(223, 222, 222);
+
+// global padding
+$app-padding: 1rem;
+
+// global font-sizes
+$small-font-size: 12px;
+
+// global flex browser specific layouts
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-center {
+  justify-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+// global mixin
+
+@mixin md-icon-size($size: 24px) {
+  font-size: $size !important;
+  height: $size;
+  width: $size;
+  line-height: $size;
 }

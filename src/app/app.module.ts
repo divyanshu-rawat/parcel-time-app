@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShipmentComponent } from './Components/shipment/shipment.component';
 import { PostOfficeComponent } from './Components/post-office/post-office.component';
+import { AppHeaderComponent } from './Components/app-header/app-header.component';
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShipmentComponent,
-    PostOfficeComponent
+    PostOfficeComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

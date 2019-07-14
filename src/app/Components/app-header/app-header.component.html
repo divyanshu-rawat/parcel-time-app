@@ -1,0 +1,15 @@
+<div class="app-header flex flex-center">
+  <div class="mat-icon-heading-wrapper flex flex-center flex-row">
+      <mat-icon class="app-logo">home</mat-icon>
+      <div class="heading-wrapper flex flex-col">
+          <p class="heading-one">POST OFFICE</p>
+          <p class="heading-two">MUNICH</p>
+      </div>
+      <div class="post-office-route">
+          <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link">Post Offices</a>
+      </div>
+      <div class="shipments-route">
+          <a routerLink="/shipments" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link">Shipments</a>
+      </div>
+  </div>
+</div>
