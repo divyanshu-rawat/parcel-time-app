@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostOfficeService } from '../../Services/post-office-service/post-office.service';
 import { postOffice } from '../../Interfaces/postOffice';
+import { DialogService } from '../../Services/shared-services/dialog.service';
 
 @Component({
   selector: 'app-post-office',
@@ -11,7 +12,7 @@ export class PostOfficeComponent implements OnInit {
 
   private p: number = 1;
   private postOffices: postOffice[] = [];
-  constructor(private postOfficeService: PostOfficeService) { }
+  constructor(private postOfficeService: PostOfficeService, private dialogService: DialogService) { }
 
   ngOnInit() {
     this.getPostOffices();
@@ -21,6 +22,17 @@ export class PostOfficeComponent implements OnInit {
     this.postOfficeService.getPostOffices().subscribe(postOffices => {
       console.log("postOffices", postOffices);
       this.postOffices = postOffices;
+    });
+  }
+
+  private deletePostOffice(id) {
+    const dialogRef = this.dialogService.openConfirmationDialog();
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.postOfficeService.deletePostOffice(id).subscribe(postoffices => {
+          this.postOffices = postoffices;
+        });
+      }
     });
   }
 }

@@ -19,7 +19,7 @@
         <div class="edit-btn flex flex-center">
           <mat-icon class="edit-icon">edit</mat-icon> Edit
         </div>
-        <div class="delete-btn flex flex-center">
+        <div class="delete-btn flex flex-center" (click)="deletePostOffice(postOffice.id)">
           <mat-icon class="delete-icon">delete</mat-icon> Delete
         </div>
       </div>

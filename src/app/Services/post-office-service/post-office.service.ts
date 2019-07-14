@@ -23,9 +23,16 @@ export class PostOfficeService {
     );
   }
 
+  deletePostOffice(id): Observable<postOffice[]> {
+    return this.http.post<postOffice[]>(this.apiurl + 'delete/' + id, this.httpOptions).pipe(
+      tap(data => data),
+      catchError(this.handleError)
+    );
+  }
+
   // Function to handle errors in case any occurs.
   private handleError(error: any) {
-    console.error(error);                                       
+    console.error(error);
     return throwError(error);
   }
 
