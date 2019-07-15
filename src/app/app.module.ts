@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import {MatListModule} from '@angular/material/list';
 // Module for https requests.
 import { HttpClientModule } from '@angular/common/http';
 
@@ -61,7 +61,8 @@ import { ShipmentListItemComponent } from './Components/shipment/shipment-list-i
     MatRadioModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatListModule
   ],
   entryComponents: [
     ConfirmationalDialogComponent,

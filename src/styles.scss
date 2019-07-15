@@ -181,3 +181,7 @@ $border-color: #dcdcdc;
     width: 28%;
   }
 }
+
+::ng-deep .mat-list-base .mat-list-option {
+  font-size: 14px !important;
+}

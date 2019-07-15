@@ -10,7 +10,7 @@ import { shipment } from '../../Interfaces/shipment';
 })
 export class ShipmentService {
 
-  private apiurl = 'http://localhost:3000/shipment/';
+  private readonly apiurl = 'http://localhost:3000/shipment/';
   private headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
   private httpOptions = {
     headers: this.headers

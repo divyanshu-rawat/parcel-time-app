@@ -8,7 +8,7 @@ import { postOffice } from '../../Interfaces/postOffice';
   providedIn: 'root'
 })
 export class PostOfficeService {
-  private apiurl = 'http://localhost:3000/office/';
+  private readonly apiurl = 'http://localhost:3000/office/';
   private headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
   private httpOptions = {
     headers: this.headers
