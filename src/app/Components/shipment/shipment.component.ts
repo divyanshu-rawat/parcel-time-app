@@ -35,4 +35,15 @@ export class ShipmentComponent implements OnInit {
     });
   }
 
+  private addNewShipment() {
+    const dialogRef = this.dialogService.openShipmentDialog();
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.event == 'Add') {
+        this.shipmentService.addShipment(result.data).subscribe(shipments => {
+          this.shipments = shipments;
+        });
+      }
+    });
+  }
+
 }

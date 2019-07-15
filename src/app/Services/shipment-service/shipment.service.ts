@@ -31,7 +31,15 @@ export class ShipmentService {
       catchError(this.handleError)
     );
   }
-  
+
+  addShipment(result): Observable<any[]> {
+    return this.http.post<any[]>(this.apiurl + 'add/', result, this.httpOptions).pipe(
+      tap(data => data),
+      catchError(this.handleError)
+    );
+  }
+
+
 
   private handleError(error: any) {
     console.error(error);

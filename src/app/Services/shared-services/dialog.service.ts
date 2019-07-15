@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ConfirmationalDialogComponent } from '../../Components/shared-components/confirmational-dialog/confirmational-dialog.component';
 import { AddUpdatePostOfficeDialogComponent } from '../../Components/shared-components/add-update-post-office-dialog/add-update-post-office-dialog.component';
+import { AddUpdateShipmentDialogComponent } from '../../Components/shared-components/add-update-shipment-dialog/add-update-shipment-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,15 @@ export class DialogService {
         data: { dialogTitle: 'Add Post Office', type: "Add" }
       });
     }
+    return dialogRef;
+  }
 
+  public openShipmentDialog() {
+    let dialogRef: MatDialogRef<any, any>;
+    dialogRef = this.dialog.open(AddUpdateShipmentDialogComponent, {
+      width: '400px',
+      data: { dialogTitle: 'Add A Shipment', type: "Add" }
+    });
     return dialogRef;
   }
 }
