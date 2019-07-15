@@ -4,25 +4,16 @@
       {{ postOffices.length }} results found
     </div>
     <div class="add-new-post-office-btn-wrapper flex">
-      <div class="add-post-office-btn flex flex-center"  (click)="addNewPostOffice()">
+      <div class="add-post-office-btn flex flex-center" (click)="addNewPostOffice()">
         Add a new Post office
       </div>
     </div>
   </div>
   <div class="post-offices-wrapper flex flex-center">
     <div *ngFor="let postOffice of postOffices | paginate: { itemsPerPage: 8, currentPage: p }" class="post-office-wrapper flex flex-col">
-      <div class="top-wrapper">
-        <h2 class="post-office-name">{{ postOffice.name }}</h2>
-        <p class="post-office-plz"> Postal Code: {{ postOffice.PLZ }}</p>
-      </div>
-      <div class="bottom-wrapper flex flex-row">
-        <div class="edit-btn flex flex-center" (click)="updatePostOffice(postOffice)">
-          <mat-icon class="edit-icon">edit</mat-icon> Edit
-        </div>
-        <div class="delete-btn flex flex-center" (click)="deletePostOffice(postOffice.id)">
-          <mat-icon class="delete-icon">delete</mat-icon> Delete
-        </div>
-      </div>
+      <app-post-office-item [postOffice]="postOffice" (updatePostOffice)="updatePostOffice($event)"
+        (deletePostOffice)="deletePostOffice($event)">
+      </app-post-office-item>
     </div>
   </div>
   <div class="pagination-wrapper">

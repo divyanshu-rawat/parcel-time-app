@@ -29,7 +29,8 @@ import { AddUpdatePostOfficeDialogComponent } from './Components/shared-componen
 import { AddUpdateShipmentDialogComponent } from './Components/shared-components/add-update-shipment-dialog/add-update-shipment-dialog.component';
 
 // Module for Filtering.
-import { Ng2SearchPipeModule } from 'ng2-search-filter'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PostOfficeItemComponent } from './Components/post-office/post-office-item/post-office-item.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'
     ConfirmationalDialogComponent,
     AddUpdatePostOfficeDialogComponent,
     AddUpdateShipmentDialogComponent,
+    PostOfficeItemComponent,
   ],
   imports: [
     BrowserModule,

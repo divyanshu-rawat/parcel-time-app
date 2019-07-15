@@ -1,0 +1,12 @@
+<div class="top-wrapper">
+    <h2 class="post-office-name">{{ postOffice.name }}</h2>
+    <p class="post-office-plz"> Postal Code: {{ postOffice.PLZ }}</p>
+</div>
+<div class="bottom-wrapper flex flex-row">
+    <div class="edit-btn flex flex-center" (click)="updatePostOfficeEvent(postOffice)">
+        <mat-icon class="edit-icon">edit</mat-icon> Edit
+    </div>
+    <div class="delete-btn flex flex-center" (click)="deletePostOfficeEvent(postOffice.id)">
+        <mat-icon class="delete-icon">delete</mat-icon> Delete
+    </div>
+</div>
