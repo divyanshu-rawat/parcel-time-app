@@ -25,7 +25,7 @@ export class PostOfficeComponent implements OnInit {
     });
   }
 
-  private deletePostOffice(id) {
+  private deletePostOffice(id: string) {
     const dialogRef = this.dialogService.openConfirmationDialog("office");
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -47,7 +47,7 @@ export class PostOfficeComponent implements OnInit {
     });
   }
 
-  private updatePostOffice(postOffice) {
+  private updatePostOffice(postOffice: postOffice) {
     const dialogRef = this.dialogService.openPostOfficeDialog(postOffice);
     dialogRef.afterClosed().subscribe(result => {
       if(result.event == 'Edit'){

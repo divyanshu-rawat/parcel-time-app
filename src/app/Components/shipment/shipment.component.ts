@@ -3,6 +3,7 @@ import { ShipmentService } from '../../Services/shipment-service/shipment.servic
 import { shipment } from '../../Interfaces/shipment';
 import { DialogService } from '../../Services/shared-services/dialog.service';
 import { shipmentWeight } from '../../Interfaces/shipmentWeight';
+import { shipmentType } from '../../Interfaces/shipmentType';
 @Component({
   selector: 'app-shipment',
   templateUrl: './shipment.component.html',
@@ -20,8 +21,9 @@ export class ShipmentComponent implements OnInit {
     { id: 1, desc: "Between 1 Kg & 5 Kg" },
     { id: 2, desc: "More than 5 Kg" }
   ];
-
   private selectedShipmentWeight: string;
+  private shipmentType: shipmentType[] = [{ id: 0, name: "Letter" }, { id: 1, name: "Package" }];
+  private selectedShipmentType: number;
   constructor(private shipmentService: ShipmentService,
     private dialogService: DialogService) { }
 
@@ -36,7 +38,7 @@ export class ShipmentComponent implements OnInit {
     });
   }
 
-  private deleteShipment(id) {
+  private deleteShipment(id: string) {
     const dialogRef = this.dialogService.openConfirmationDialog("shipment");
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -58,7 +60,7 @@ export class ShipmentComponent implements OnInit {
     });
   }
 
-  private updateShipment(shipment) {
+  private updateShipment(shipment: shipment) {
     const dialogRef = this.dialogService.openShipmentDialog(shipment);
     dialogRef.afterClosed().subscribe(result => {
       if (result.event == 'Edit') {
@@ -71,16 +73,29 @@ export class ShipmentComponent implements OnInit {
 
   // Filtering specific functions.
 
-  private radioButtonSelected(event) {
-    this.showClearFilterbtn = true;
+  private filterbyShipmentWeight(event) {
+    if(!this.showClearFilterbtn){
+      this.showClearFilterbtn = true;
+    }
     const { value } = event;
     this.filteredArray = this.shipments.filter(shipment => shipment.weight.id == value)
     this.shipments = this.filteredArray;
   }
 
-  private clearFilters(){
+  private filterbyShipmentType(event) {
+    if(!this.showClearFilterbtn){
+      this.showClearFilterbtn = true;
+    }
+    const { value } = event;
+    this.filteredArray = this.shipments.filter(shipment => shipment.type.id == value)
+    this.shipments = this.filteredArray;
+  }
+
+  private clearFilters() {
     this.showClearFilterbtn = false;
     this.selectedShipmentWeight = null;
+    this.selectedShipmentType = null;
+    this.searchText = null;
     this.shipments = this.retainedShipmentData;
   }
 }
