@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
 @Component({
   selector: 'app-add-update-post-office-dialog',
   templateUrl: './add-update-post-office-dialog.component.html',

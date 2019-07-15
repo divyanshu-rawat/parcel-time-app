@@ -14,7 +14,7 @@ export class PostOfficeService {
     headers: this.headers
   };
 
-  constructor(private http: HttpClient) { } // Dependency Injection of HttpClient to perform CRUD operations of rest-api endpoints.
+  constructor(private http: HttpClient) { }      //Injecting HTTP service to communicate with the  rest-api.
 
   getPostOffices(): Observable<postOffice[]> {
     return this.http.get<postOffice[]>(this.apiurl + 'list').pipe(
@@ -31,23 +31,22 @@ export class PostOfficeService {
   }
 
   addPostOffice(result): Observable<postOffice[]> {
-    return this.http.post<postOffice[]>(this.apiurl + 'add/', result, this.httpOptions ).pipe(
+    return this.http.post<postOffice[]>(this.apiurl + 'add/', result, this.httpOptions).pipe(
       tap(data => data),
       catchError(this.handleError)
     );
   }
 
   updatePostOffice(id, result): Observable<postOffice[]> {
-    return this.http.post<postOffice[]>(this.apiurl + 'update/' + id, result, this.httpOptions ).pipe(
+    return this.http.post<postOffice[]>(this.apiurl + 'update/' + id, result, this.httpOptions).pipe(
       tap(data => data),
       catchError(this.handleError)
     );
   }
 
-  // Function to handle errors in case any occurs.
+
   private handleError(error: any) {
     console.error(error);
     return throwError(error);
   }
-
 }

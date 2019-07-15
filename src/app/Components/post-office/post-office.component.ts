@@ -56,10 +56,12 @@ export class PostOfficeComponent implements OnInit, OnDestroy {
   private addNewPostOffice(): void {
     const dialogRef = this.dialogService.openPostOfficeDialog();
     this.addPostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
-      if (result.event == 'Add') {
-        this.postOfficeService.addPostOffice(result.data).subscribe(postoffices => {
-          this.postOffices = postoffices;
-        });
+      if (result) {
+        if (result.event == 'Add') {
+          this.postOfficeService.addPostOffice(result.data).subscribe(postoffices => {
+            this.postOffices = postoffices;
+          });
+        }
       }
     });
   }
@@ -67,10 +69,12 @@ export class PostOfficeComponent implements OnInit, OnDestroy {
   private updatePostOffice(postOffice: postOffice): void {
     const dialogRef = this.dialogService.openPostOfficeDialog(postOffice);
     this.updatePostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
-      if (result.event == 'Edit') {
-        this.postOfficeService.updatePostOffice(postOffice.id, result.data).subscribe(postoffices => {
-          this.postOffices = postoffices;
-        });
+      if (result) {
+        if (result.event == 'Edit') {
+          this.postOfficeService.updatePostOffice(postOffice.id, result.data).subscribe(postoffices => {
+            this.postOffices = postoffices;
+          });
+        }
       }
     });
   }

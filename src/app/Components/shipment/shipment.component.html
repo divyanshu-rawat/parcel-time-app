@@ -17,7 +17,7 @@
     </form>
 
     <div class="radio-btn-wrapper flex flex-col m-t-1rem ">
-      <label id="shipment-weight-radio-group-label">Select Shipment Weight:</label>
+      <label id="shipment-weight-radio-group-label">Filter by Shipment Weight:</label>
       <mat-radio-group aria-labelledby="shipment-weight-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentWeight"
         (change)="filterbyShipmentWeight($event)">
         <mat-radio-button class="radio-button" *ngFor="let weight of shipmentWeights" [value]="weight.id">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="radio-btn-wrapper flex flex-col">
-      <label id="shipment-type-group-label">{{ buttonText }} Shipment Type:</label>
+      <label id="shipment-type-group-label">Filter by Shipment Type:</label>
       <mat-radio-group aria-labelledby="shipment-type-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentType"
         (change)="filterbyShipmentType($event)">
         <mat-radio-button class="radio-button" *ngFor="let type of shipmentType" [value]="type.id">
@@ -36,6 +36,12 @@
       </mat-radio-group>
     </div>
 
+    <div class="shipment-tracking-checkbox-wrapper m-t-1rem flex flex-col">
+      <label id="shipment-tracking-status">Filter by Shipment Tracking:</label>
+      <mat-checkbox (change) = "filterByShipmentOrigin($event)" class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentOrigin">Origin</mat-checkbox>
+      <mat-checkbox (change) = "filterByShipmentDestination($event)" class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentDestination">Destination</mat-checkbox>
+      <mat-checkbox (change) = "filterByShipmentDelivered($event)" class="shipment-tracking-checkbox" [(ngModel)]="shipmentdelivered">Delivered</mat-checkbox>
+    </div>
   </div>
   <div class="shipments-wrapper flex-center">
     <div class="shipment-header flex flex-row">

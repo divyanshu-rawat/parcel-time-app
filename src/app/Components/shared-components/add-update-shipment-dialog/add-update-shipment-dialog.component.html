@@ -31,13 +31,13 @@
 
     <div class="shipment-tracking-checkbox-wrapper flex flex-col">
         <label id="shipment-tracking-status">{{ buttonText }} Shipment Tracking:</label>
-        <mat-checkbox [required] = "btnRequired" class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentOrigin">Origin</mat-checkbox>
+        <mat-checkbox class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentOrigin">Origin</mat-checkbox>
         <mat-checkbox class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentDestination">Destination</mat-checkbox>
         <mat-checkbox class="shipment-tracking-checkbox" [(ngModel)]="shipmentdelivered">Delivered</mat-checkbox>
     </div>
 
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button class="post-office-add-edit-btn" (click)="addShipment()">{{ buttonText }}</button>
+    <button mat-button [disabled]="!selectedPostOffice || !selectedShipmentWeight || !selectedShipmentType " class="post-office-add-edit-btn" (click)="addShipment()">{{ buttonText }}</button>
     <button mat-button type="button" mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

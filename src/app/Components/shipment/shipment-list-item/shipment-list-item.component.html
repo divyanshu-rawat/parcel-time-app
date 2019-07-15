@@ -12,6 +12,10 @@
     <p class="m-t-1rem">Post Office: {{ shipment.office.name }}</p>
     <p class="m-t-1rem">Postal Code: {{ shipment.office.PLZ}}</p>
     <p class="m-t-1rem">Weight: {{ shipment.weight.desc}}</p>
+    <p class="m-t-1rem">Origin: {{ shipment.origin}}</p>
+    <p class="m-t-1rem">Destination: {{ shipment.destination}}</p>
+    <p class="m-t-1rem">Delivered: {{ shipment.delivered}}</p>
+    
 </div>
 <div class="bottom-wrapper flex flex-row">
     <div class="edit-btn flex flex-center" (click)="updateShipmentEvent(shipment)">
