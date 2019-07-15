@@ -19,10 +19,13 @@ $text-white: rgb(255, 255, 255);
 $text-dark-white: rgb(223, 222, 222);
 $text-red: rgb(255, 0, 0);
 $text-green: rgb(0, 151, 13);
-$text-yellow : #ffc107;
+$text-yellow: #ffc107;
 
-// global padding
+// global paddings
 $app-padding: 1rem;
+.m-t-1rem {
+  margin-top: 1rem;
+}
 
 // global font-sizes
 $small-font-size: 12px;
@@ -107,11 +110,15 @@ $border-color: #dcdcdc;
   .post-office-wrapper {
     width: 100%;
   }
+  .shipment-wrapper {
+    width: 100%;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .post-office-wrapper {
+  .post-office-wrapper,
+  .shipment-wrapper {
     width: 50%;
   }
 }
@@ -121,6 +128,9 @@ $border-color: #dcdcdc;
   .post-office-wrapper {
     width: 30%;
   }
+  .shipment-wrapper {
+    width: 30%;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -128,11 +138,17 @@ $border-color: #dcdcdc;
   .post-office-wrapper {
     width: 25%;
   }
+  .shipment-wrapper {
+    width: 30%;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .post-office-wrapper {
     width: 20%;
+  }
+  .shipment-wrapper {
+    width: 28%;
   }
 }

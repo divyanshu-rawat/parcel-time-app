@@ -10,10 +10,10 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) { }
 
-  public openConfirmationDialog() {
+  public openConfirmationDialog(type) {
     const dialogRef = this.dialog.open(ConfirmationalDialogComponent, {
       width: '300px',
-      data: { dialogTitle: 'Delete Post Office', dialogText: "Are you sure?" }
+      data: { dialogTitle: type == "shipment" ? "Delete Shipment" : "Delete Post Office", dialogText: "Are you sure?" }
     });
     return dialogRef;
   }

@@ -26,7 +26,7 @@ export class PostOfficeComponent implements OnInit {
   }
 
   private deletePostOffice(id) {
-    const dialogRef = this.dialogService.openConfirmationDialog();
+    const dialogRef = this.dialogService.openConfirmationDialog("office");
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.postOfficeService.deletePostOffice(id).subscribe(postoffices => {
