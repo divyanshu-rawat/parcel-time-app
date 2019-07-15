@@ -3,6 +3,13 @@ import { PostOfficeService } from '../../Services/post-office-service/post-offic
 import { postOffice } from '../../Interfaces/postOffice';
 import { DialogService } from '../../Services/shared-services/dialog.service';
 
+/**
+ * PostOffice Component
+ * Component responsible for all the interactions happening in post office route.
+ * For Instance CRUD Opeartions, triggering dailogs, pagination logic.
+ */
+
+
 @Component({
   selector: 'app-post-office',
   templateUrl: './post-office.component.html',
@@ -21,10 +28,15 @@ export class PostOfficeComponent implements OnInit, OnDestroy {
   constructor(private postOfficeService: PostOfficeService, private dialogService: DialogService) { }
 
   ngOnInit() {
+    // Fetching psotOffices on component mount/init.
     this.getPostOffices();
   }
 
   ngOnDestroy() {
+    /*
+      Unsubscribing all the subscriptions on component destroy,  
+      ensuring good practises and performance improvements.
+    */
     if (this.deletePostOfficeSubscription) {
       this.deletePostOfficeSubscription.unsubscribe();
     }
@@ -36,12 +48,13 @@ export class PostOfficeComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Leverages postOfficeService to get postOffice data from rest-api.
   private getPostOffices(): void {
     this.postOfficeService.getPostOffices().subscribe(postOffices => {
       this.postOffices = postOffices;
     });
   }
-
+  // Leverages postOfficeService to delete postOffice data from rest-api. 
   private deletePostOffice(id: string): void {
     const dialogRef = this.dialogService.openConfirmationDialog("office");
     this.deletePostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
@@ -52,7 +65,7 @@ export class PostOfficeComponent implements OnInit, OnDestroy {
       }
     });
   }
-
+  //  Leverages postOfficeService to add postOffice data from rest-api.
   private addNewPostOffice(): void {
     const dialogRef = this.dialogService.openPostOfficeDialog();
     this.addPostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
@@ -65,7 +78,7 @@ export class PostOfficeComponent implements OnInit, OnDestroy {
       }
     });
   }
-
+  //  Leverages postOfficeService to get postOffice update from rest-api.
   private updatePostOffice(postOffice: postOffice): void {
     const dialogRef = this.dialogService.openPostOfficeDialog(postOffice);
     this.updatePostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {

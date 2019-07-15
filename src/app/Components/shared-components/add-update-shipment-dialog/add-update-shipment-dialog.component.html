@@ -14,8 +14,8 @@
     </mat-form-field>
     <div class="radio-btn-wrapper flex flex-col">
         <label id="shipment-weight-radio-group-label">{{ buttonText }} Shipment Weight:</label>
-        <mat-radio-group aria-labelledby="shipment-weight-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentWeight">
-            <mat-radio-button class="radio-button" *ngFor="let weight of shipmentWeights" [value]="weight.id">
+        <mat-radio-group required aria-labelledby="shipment-weight-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentWeight">
+            <mat-radio-button required class="radio-button" *ngFor="let weight of shipmentWeights" [value]="weight.id">
                 {{weight.desc}}
             </mat-radio-button>
         </mat-radio-group>
@@ -38,6 +38,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button [disabled]="!selectedPostOffice || !selectedShipmentWeight || !selectedShipmentType " class="post-office-add-edit-btn" (click)="addShipment()">{{ buttonText }}</button>
+    <button mat-button class="post-office-add-edit-btn" (click)="addShipment()">{{ buttonText }}</button>
     <button mat-button type="button" mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
