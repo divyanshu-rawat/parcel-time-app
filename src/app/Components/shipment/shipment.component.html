@@ -1,13 +1,31 @@
 <div class="shipments-container flex flex-row">
   <div class="shipments-filters flex flex-col">
-    <div class="filter-heading">
-      <p>FILTERS</p>
+    <div class="filter-heading flex flex-row">
+      <div class="filter-text">
+        <p>FILTERS</p>
+      </div>
+      <div class="clear-filter-btn-wrapper flex" *ngIf = "showClearFilterbtn">
+        <div class="clear-filter-btn flex flex-center" (click)="clearFilters()">
+          Clear
+        </div>
+      </div>
     </div>
-    <form class="search-filter-wrapper">
-      <mat-form-field class="search-filter">
+    <form class="search-filter-wrapper m-t-1rem ">
+      <mat-form-field class="search-filter m-t-1rem">
         <input matInput type="text" name="search" placeholder="Search for a Shipment" autocomplete="on" [(ngModel)]="searchText">
       </mat-form-field>
     </form>
+
+    <div class="radio-btn-wrapper flex flex-col m-t-1rem ">
+      <label id="shipment-weight-radio-group-label">Select Shipment Weight:</label>
+      <mat-radio-group aria-labelledby="shipment-weight-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentWeight"
+        (change)="radioButtonSelected($event)">
+        <mat-radio-button class="radio-button" *ngFor="let weight of shipmentWeights" [value]="weight.id">
+          {{weight.desc}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
   </div>
   <div class="shipments-wrapper flex-center">
     <div class="shipment-header flex flex-row">

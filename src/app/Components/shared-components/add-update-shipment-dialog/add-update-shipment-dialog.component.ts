@@ -28,8 +28,8 @@ export class AddUpdateShipmentDialogComponent implements OnInit {
 
   // Capture user selected shipment data.
 
-  private selectedShipmentType: string;
-  private selectedShipmentWeight: string;
+  private selectedShipmentType: number;
+  private selectedShipmentWeight: number;
   private selectedPostOffice: string;
   private selectedShipmentOrigin = false;
   private selectedShipmentDestination = false;

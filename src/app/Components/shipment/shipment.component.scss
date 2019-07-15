@@ -10,10 +10,26 @@
     padding: $app-padding;
     .filter-heading {
       height: 2rem;
-      border-bottom: 1px solid #e2dcdc;
+      .filter-text {
+        flex: 1;
+      }
+      .clear-filter-btn-wrapper {
+        flex: 1;
+        justify-content: flex-end;
+        .clear-filter-btn {
+          width: 2.5rem;
+          padding: 0.3rem;
+          background: $primary-color;
+          color: $text-white;
+          cursor: pointer;
+        }
+      }
     }
-    .search-filter {
-      width: 100%;
+    .search-filter-wrapper {
+      border-top: 1px solid #e2dcdc;
+      .search-filter {
+        width: 100%;
+      }
     }
   }
   .shipments-wrapper {

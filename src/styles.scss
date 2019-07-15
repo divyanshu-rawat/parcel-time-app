@@ -108,6 +108,19 @@ $border-color: #dcdcdc;
   }
 }
 
+//global radio-btns-css
+
+.radio-button {
+  margin: 5px;
+}
+
+.radio-btn-wrapper {
+  margin-top: 1rem;
+  .radio-group {
+    margin: 15px 0;
+  }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .post-office-wrapper {
