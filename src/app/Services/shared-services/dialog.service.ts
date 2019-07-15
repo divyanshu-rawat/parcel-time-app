@@ -11,7 +11,7 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) { }
 
-  public openConfirmationDialog(type) {
+  public openConfirmationDialog(type): MatDialogRef<any, any> {
     const dialogRef = this.dialog.open(ConfirmationalDialogComponent, {
       width: '300px',
       data: { dialogTitle: type == "shipment" ? "Delete Shipment" : "Delete Post Office", dialogText: "Are you sure?" }
@@ -19,7 +19,7 @@ export class DialogService {
     return dialogRef;
   }
 
-  public openPostOfficeDialog(postOfficeData?) {
+  public openPostOfficeDialog(postOfficeData?): MatDialogRef<any, any> {
     let dialogRef: MatDialogRef<any, any>;
     if (postOfficeData) {
       dialogRef = this.dialog.open(AddUpdatePostOfficeDialogComponent, {
@@ -35,7 +35,7 @@ export class DialogService {
     return dialogRef;
   }
 
-  public openShipmentDialog(shipmentData?) {
+  public openShipmentDialog(shipmentData?): MatDialogRef<any, any> {
     let dialogRef: MatDialogRef<any, any>;
     if (shipmentData) {
       dialogRef = this.dialog.open(AddUpdateShipmentDialogComponent, {

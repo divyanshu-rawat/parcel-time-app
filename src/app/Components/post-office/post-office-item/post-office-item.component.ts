@@ -12,9 +12,9 @@ export class PostOfficeItemComponent implements OnInit {
   @Output() deletePostOffice = new EventEmitter<number>();
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  // Events emitted by app-post-office-item to communicate to parent-component(app-post-office).
   updatePostOfficeEvent(postOffice) {
     this.updatePostOffice.emit(postOffice)
   }

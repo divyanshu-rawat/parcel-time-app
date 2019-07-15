@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostOfficeService } from '../../Services/post-office-service/post-office.service';
 import { postOffice } from '../../Interfaces/postOffice';
 import { DialogService } from '../../Services/shared-services/dialog.service';
@@ -8,26 +8,43 @@ import { DialogService } from '../../Services/shared-services/dialog.service';
   templateUrl: './post-office.component.html',
   styleUrls: ['./post-office.component.scss']
 })
-export class PostOfficeComponent implements OnInit {
+export class PostOfficeComponent implements OnInit, OnDestroy {
 
   private p: number = 1;
   private postOffices: postOffice[] = [];
+
+  // subscriptions;
+  private deletePostOfficeSubscription;
+  private updatePostOfficeSubscription;
+  private addPostOfficeSubscription;
+
   constructor(private postOfficeService: PostOfficeService, private dialogService: DialogService) { }
 
   ngOnInit() {
     this.getPostOffices();
   }
 
-  private getPostOffices() {
+  ngOnDestroy() {
+    if (this.deletePostOfficeSubscription) {
+      this.deletePostOfficeSubscription.unsubscribe();
+    }
+    if (this.updatePostOfficeSubscription) {
+      this.updatePostOfficeSubscription.unsubscribe();
+    }
+    if (this.addPostOfficeSubscription) {
+      this.addPostOfficeSubscription.unsubscribe();
+    }
+  }
+
+  private getPostOffices(): void {
     this.postOfficeService.getPostOffices().subscribe(postOffices => {
-      console.log("postOffices", postOffices);
       this.postOffices = postOffices;
     });
   }
 
-  private deletePostOffice(id: string) {
+  private deletePostOffice(id: string): void {
     const dialogRef = this.dialogService.openConfirmationDialog("office");
-    dialogRef.afterClosed().subscribe(result => {
+    this.deletePostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.postOfficeService.deletePostOffice(id).subscribe(postoffices => {
           this.postOffices = postoffices;
@@ -36,10 +53,10 @@ export class PostOfficeComponent implements OnInit {
     });
   }
 
-  private addNewPostOffice() {
+  private addNewPostOffice(): void {
     const dialogRef = this.dialogService.openPostOfficeDialog();
-    dialogRef.afterClosed().subscribe(result => {
-      if(result.event == 'Add'){
+    this.addPostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
+      if (result.event == 'Add') {
         this.postOfficeService.addPostOffice(result.data).subscribe(postoffices => {
           this.postOffices = postoffices;
         });
@@ -47,10 +64,10 @@ export class PostOfficeComponent implements OnInit {
     });
   }
 
-  private updatePostOffice(postOffice: postOffice) {
+  private updatePostOffice(postOffice: postOffice): void {
     const dialogRef = this.dialogService.openPostOfficeDialog(postOffice);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result.event == 'Edit'){
+    this.updatePostOfficeSubscription = dialogRef.afterClosed().subscribe(result => {
+      if (result.event == 'Edit') {
         this.postOfficeService.updatePostOffice(postOffice.id, result.data).subscribe(postoffices => {
           this.postOffices = postoffices;
         });

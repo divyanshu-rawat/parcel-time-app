@@ -24,6 +24,12 @@ export class ShipmentComponent implements OnInit {
   private selectedShipmentWeight: string;
   private shipmentType: shipmentType[] = [{ id: 0, name: "Letter" }, { id: 1, name: "Package" }];
   private selectedShipmentType: number;
+
+  // subscription variables
+
+  private deleteShipmentSubscription;
+  private updateShipmentSubscription;
+  private addShipmentSubscription;
   constructor(private shipmentService: ShipmentService,
     private dialogService: DialogService) { }
 
@@ -31,16 +37,29 @@ export class ShipmentComponent implements OnInit {
     this.getShipments();
   }
 
-  private getShipments() {
+
+  ngOnDestroy() {
+    if (this.deleteShipmentSubscription) {
+      this.deleteShipmentSubscription.unsubscribe();
+    }
+    if (this.updateShipmentSubscription) {
+      this.updateShipmentSubscription.unsubscribe();
+    }
+    if (this.addShipmentSubscription) {
+      this.addShipmentSubscription.unsubscribe();
+    }
+  }
+
+  private getShipments(): void {
     this.shipmentService.getShipments().subscribe(shipments => {
       this.shipments = shipments;
       this.retainedShipmentData = shipments;
     });
   }
 
-  private deleteShipment(id: string) {
+  private deleteShipment(id: string): void {
     const dialogRef = this.dialogService.openConfirmationDialog("shipment");
-    dialogRef.afterClosed().subscribe(result => {
+    this.deleteShipmentSubscription = dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.shipmentService.deleteShipment(id).subscribe(postoffices => {
           this.shipments = postoffices;
@@ -49,9 +68,9 @@ export class ShipmentComponent implements OnInit {
     });
   }
 
-  private addNewShipment() {
+  private addNewShipment(): void {
     const dialogRef = this.dialogService.openShipmentDialog();
-    dialogRef.afterClosed().subscribe(result => {
+    this.addShipmentSubscription = dialogRef.afterClosed().subscribe(result => {
       if (result.event == 'Add') {
         this.shipmentService.addShipment(result.data).subscribe(shipments => {
           this.shipments = shipments;
@@ -60,9 +79,9 @@ export class ShipmentComponent implements OnInit {
     });
   }
 
-  private updateShipment(shipment: shipment) {
+  private updateShipment(shipment: shipment): void {
     const dialogRef = this.dialogService.openShipmentDialog(shipment);
-    dialogRef.afterClosed().subscribe(result => {
+    this.updateShipmentSubscription = dialogRef.afterClosed().subscribe(result => {
       if (result.event == 'Edit') {
         this.shipmentService.updateShipment(shipment.id, result.data).subscribe(shipments => {
           this.shipments = shipments;
@@ -73,8 +92,8 @@ export class ShipmentComponent implements OnInit {
 
   // Filtering specific functions.
 
-  private filterbyShipmentWeight(event) {
-    if(!this.showClearFilterbtn){
+  private filterbyShipmentWeight(event): void {
+    if (!this.showClearFilterbtn) {
       this.showClearFilterbtn = true;
     }
     const { value } = event;
@@ -82,8 +101,8 @@ export class ShipmentComponent implements OnInit {
     this.shipments = this.filteredArray;
   }
 
-  private filterbyShipmentType(event) {
-    if(!this.showClearFilterbtn){
+  private filterbyShipmentType(event): void {
+    if (!this.showClearFilterbtn) {
       this.showClearFilterbtn = true;
     }
     const { value } = event;
@@ -91,7 +110,7 @@ export class ShipmentComponent implements OnInit {
     this.shipments = this.filteredArray;
   }
 
-  private clearFilters() {
+  private clearFilters(): void {
     this.showClearFilterbtn = false;
     this.selectedShipmentWeight = null;
     this.selectedShipmentType = null;

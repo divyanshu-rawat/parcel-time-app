@@ -15,6 +15,7 @@ export class ShipmentListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Events emitted by app-post-office-item to communicate to parent-component(app-post-office).
   updateShipmentEvent(postOffice) {
     this.updateShipment.emit(postOffice)
   }
