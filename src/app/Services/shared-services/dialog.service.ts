@@ -35,12 +35,19 @@ export class DialogService {
     return dialogRef;
   }
 
-  public openShipmentDialog() {
+  public openShipmentDialog(shipmentData?) {
     let dialogRef: MatDialogRef<any, any>;
-    dialogRef = this.dialog.open(AddUpdateShipmentDialogComponent, {
-      width: '400px',
-      data: { dialogTitle: 'Add A Shipment', type: "Add" }
-    });
+    if (shipmentData) {
+      dialogRef = this.dialog.open(AddUpdateShipmentDialogComponent, {
+        width: '400px',
+        data: { dialogTitle: 'Edit A Shipment', type: "Edit", defaultData: shipmentData }
+      });
+    } else {
+      dialogRef = this.dialog.open(AddUpdateShipmentDialogComponent, {
+        width: '400px',
+        data: { dialogTitle: 'Add A Shipment', type: "Add" }
+      });
+    }
     return dialogRef;
   }
 }

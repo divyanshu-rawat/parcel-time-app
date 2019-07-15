@@ -32,7 +32,7 @@ export class ShipmentService {
     );
   }
 
-  addShipment(result): Observable<any[]> {
+  addShipment(result): Observable<shipment[]> {
     return this.http.post<any[]>(this.apiurl + 'add/', result, this.httpOptions).pipe(
       tap(data => data),
       catchError(this.handleError)
@@ -40,6 +40,12 @@ export class ShipmentService {
   }
 
 
+  updateShipment(id, result): Observable<shipment[]> {
+    return this.http.post<any[]>(this.apiurl + 'update/' + id, result, this.httpOptions).pipe(
+      tap(data => data),
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(error: any) {
     console.error(error);
