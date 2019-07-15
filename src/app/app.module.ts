@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ConfirmationalDialogComponent } from './Components/shared-components/confirmational-dialog/confirmational-dialog.component';
 import { AddUpdatePostOfficeDialogComponent } from './Components/shared-components/add-update-post-office-dialog/add-update-post-office-dialog.component';
+import { AddUpdateShipmentDialogComponent } from './Components/shared-components/add-update-shipment-dialog/add-update-shipment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { AddUpdatePostOfficeDialogComponent } from './Components/shared-componen
     AppHeaderComponent,
     ConfirmationalDialogComponent,
     AddUpdatePostOfficeDialogComponent,
+    AddUpdateShipmentDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,10 @@ import { AddUpdatePostOfficeDialogComponent } from './Components/shared-componen
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
   entryComponents: [
     ConfirmationalDialogComponent,

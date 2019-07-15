@@ -25,12 +25,13 @@ export class ShipmentService {
     );
   }
 
-  deleteShipment(id): Observable<any[]> {
+  deleteShipment(id): Observable<shipment[]> {
     return this.http.post<any[]>(this.apiurl + 'delete/' + id, this.httpOptions).pipe(
       tap(data => data),
       catchError(this.handleError)
     );
   }
+  
 
   private handleError(error: any) {
     console.error(error);
