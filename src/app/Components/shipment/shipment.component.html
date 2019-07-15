@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="shipments flex flex-row">
-      <div *ngFor=" let shipment of shipments | filter:searchText " class="shipment-wrapper flex flex-col">
+      <div *ngFor=" let shipment of shipments | filter:searchText | paginate: { itemsPerPage: 6, currentPage: p }" class="shipment-wrapper flex flex-col">
         <div class="upper-card-content flex flex-row">
           <div class="shipment-type">
             <p> {{ shipment.type.name }}</p>
@@ -71,5 +71,8 @@
         </div>
       </div>
     </div>
+    <div class="pagination-wrapper">
+        <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+      </div>
   </div>
 </div>

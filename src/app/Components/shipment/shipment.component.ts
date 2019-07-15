@@ -10,7 +10,7 @@ import { shipmentType } from '../../Interfaces/shipmentType';
   styleUrls: ['./shipment.component.scss']
 })
 export class ShipmentComponent implements OnInit {
-
+  private p: number = 1;
   private shipments: shipment[] = [];
   private searchText: string;
   private filteredArray: shipment[] = [];
