@@ -11,8 +11,7 @@
   </div>
   <div class="post-offices-wrapper flex flex-center">
     <div *ngFor="let postOffice of postOffices | paginate: { itemsPerPage: 8, currentPage: p }" class="post-office-wrapper flex flex-col">
-      <app-post-office-item [postOffice]="postOffice" (updatePostOffice)="updatePostOffice($event)"
-        (deletePostOffice)="deletePostOffice($event)">
+      <app-post-office-item [postOffice]="postOffice" (updatePostOffice)="updatePostOffice($event)" (deletePostOffice)="deletePostOffice($event)">
       </app-post-office-item>
     </div>
   </div>

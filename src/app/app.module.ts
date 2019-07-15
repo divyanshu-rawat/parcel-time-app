@@ -30,7 +30,8 @@ import { AddUpdateShipmentDialogComponent } from './Components/shared-components
 
 // Module for Filtering.
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { PostOfficeItemComponent } from './Components/post-office/post-office-item/post-office-item.component'
+import { PostOfficeItemComponent } from './Components/post-office/post-office-item/post-office-item.component';
+import { ShipmentListItemComponent } from './Components/shipment/shipment-list-item/shipment-list-item.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PostOfficeItemComponent } from './Components/post-office/post-office-it
     AddUpdatePostOfficeDialogComponent,
     AddUpdateShipmentDialogComponent,
     PostOfficeItemComponent,
+    ShipmentListItemComponent,
   ],
   imports: [
     BrowserModule,

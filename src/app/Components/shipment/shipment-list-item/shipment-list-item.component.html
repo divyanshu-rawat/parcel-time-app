@@ -1,0 +1,23 @@
+<div class="upper-card-content flex flex-row">
+    <div class="shipment-type">
+        <p> {{ shipment.type.name }}</p>
+    </div>
+    <div class="shipment-status">
+        <p [class.delivered]="shipment.delivered" [class.processed]="!shipment.delivered"> {{
+            shipment.delivered ? "DELIVERED" : "PROCESSED"}} </p>
+    </div>
+</div>
+<div class="middle-card-content">
+    <p class="m-t-1rem">Shipment ID: {{ shipment.id }}</p>
+    <p class="m-t-1rem">Post Office: {{ shipment.office.name }}</p>
+    <p class="m-t-1rem">Postal Code: {{ shipment.office.PLZ}}</p>
+    <p class="m-t-1rem">Weight: {{ shipment.weight.desc}}</p>
+</div>
+<div class="bottom-wrapper flex flex-row">
+    <div class="edit-btn flex flex-center" (click)="updateShipmentEvent(shipment)">
+        <mat-icon class="edit-icon">edit</mat-icon> Edit
+    </div>
+    <div class="delete-btn flex flex-center" (click)="deleteShipmentEvent(shipment.id)">
+        <mat-icon class="delete-icon">delete</mat-icon> Delete
+    </div>
+</div>

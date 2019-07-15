@@ -20,7 +20,6 @@ export class PostOfficeItemComponent implements OnInit {
   }
 
   deletePostOfficeEvent(id) {
-    console.log("called");
     this.deletePostOffice.emit(id);
   }
 }

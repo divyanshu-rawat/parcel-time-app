@@ -1,0 +1,23 @@
+@import "../../../../styles.scss";
+
+.upper-card-content {
+  border-bottom: 1px solid #e2dcdc;
+  padding: 1rem;
+  .shipment-type {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .shipment-status {
+    .delivered {
+      color: $text-green;
+    }
+    .processed {
+      color: $text-yellow;
+    }
+  }
+}
+
+.middle-card-content {
+  padding: $app-padding;
+}
