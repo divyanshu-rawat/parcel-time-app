@@ -10,6 +10,7 @@ import { DialogService } from '../../Services/shared-services/dialog.service';
 export class ShipmentComponent implements OnInit {
 
   private shipments: shipment[] = [];
+  private searchText: string;
   constructor(private shipmentService: ShipmentService,
     private dialogService: DialogService) { }
 

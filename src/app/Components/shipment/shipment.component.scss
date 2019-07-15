@@ -4,6 +4,17 @@
   padding: $app-padding;
   .shipments-filters {
     width: 20%;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: $app-padding;
+    .filter-heading {
+      height: 2rem;
+      border-bottom: 1px solid #e2dcdc;
+    }
+    .search-filter {
+      width: 100%;
+    }
   }
   .shipments-wrapper {
     width: 80%;

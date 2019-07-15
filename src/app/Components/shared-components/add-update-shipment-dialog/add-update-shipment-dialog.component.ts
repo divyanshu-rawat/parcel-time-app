@@ -11,7 +11,7 @@ import { shipmentType } from '../../../Interfaces/shipmentType';
 @Component({
   selector: 'app-add-update-shipment-dialog',
   templateUrl: './add-update-shipment-dialog.component.html',
-  styleUrls: ['./add-update-shipment-dialog.component.sass']
+  styleUrls: ['./add-update-shipment-dialog.component.scss']
 })
 export class AddUpdateShipmentDialogComponent implements OnInit {
 
@@ -45,6 +45,15 @@ export class AddUpdateShipmentDialogComponent implements OnInit {
     if (this.data.type == "Add") {
       this.buttonText = 'Add';
       this.operation = 'Add';
+    } else {
+      this.buttonText = 'Update';
+      this.operation = 'Edit';
+      this.selectedShipmentOrigin = this.data.defaultData.origin;
+      this.shipmentdelivered = this.data.defaultData.delivered;
+      this.selectedShipmentWeight = this.data.defaultData.weight.id;
+      this.selectedShipmentType = this.data.defaultData.type.id;
+      this.selectedShipmentDestination = this.data.defaultData.destination;
+      this.selectedPostOffice = this.data.defaultData.office.id;
     }
     this.dialogTitle = this.data.dialogTitle;
     this.postOfficeService.getPostOffices().subscribe((postOffices) => {

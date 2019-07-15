@@ -14,11 +14,12 @@ import { MatDialogModule } from "@angular/material";
 import { MatButtonModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+// Module for https requests.
 import { HttpClientModule } from '@angular/common/http';
 
 // Module for pagination.
@@ -26,6 +27,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ConfirmationalDialogComponent } from './Components/shared-components/confirmational-dialog/confirmational-dialog.component';
 import { AddUpdatePostOfficeDialogComponent } from './Components/shared-components/add-update-post-office-dialog/add-update-post-office-dialog.component';
 import { AddUpdateShipmentDialogComponent } from './Components/shared-components/add-update-shipment-dialog/add-update-shipment-dialog.component';
+
+// Module for Filtering.
+import { Ng2SearchPipeModule } from 'ng2-search-filter'
 
 @NgModule({
   declarations: [
@@ -51,7 +55,9 @@ import { AddUpdateShipmentDialogComponent } from './Components/shared-components
     FormsModule,
     MatSelectModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [
     ConfirmationalDialogComponent,
