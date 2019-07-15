@@ -55,7 +55,8 @@ import { AddUpdateShipmentDialogComponent } from './Components/shared-components
   ],
   entryComponents: [
     ConfirmationalDialogComponent,
-    AddUpdatePostOfficeDialogComponent
+    AddUpdatePostOfficeDialogComponent,
+    AddUpdateShipmentDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

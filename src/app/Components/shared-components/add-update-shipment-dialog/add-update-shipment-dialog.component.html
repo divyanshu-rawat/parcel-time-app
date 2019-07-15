@@ -1,4 +1,4 @@
-<div class="dialog-title">
+<div class="dialog-title flex flex-row flex-center">
     <h2>{{dialogTitle}} </h2>
     <mat-icon class="m-l-1rem">next_week</mat-icon>
 </div>
@@ -7,31 +7,31 @@
         <mat-label>Select A Post Office
         </mat-label>
         <mat-select [(value)]="selectedPostOffice">
-            <mat-option *ngFor="let postOffice of postOfficeMap" [value]="postOffice.id">
+            <mat-option *ngFor="let postOffice of postOfficeList" [value]="postOffice.id">
                 {{postOffice.name}}
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <div class="radio-btn-wrapper">
+    <div class="radio-btn-wrapper flex flex-col">
         <label id="shipment-weight-radio-group-label">{{ buttonText }}Select Shipment Weight:</label>
-        <mat-radio-group aria-labelledby="shipment-weight-label" class="radio-group" [(ngModel)]="selectedShipmentWeight">
+        <mat-radio-group aria-labelledby="shipment-weight-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentWeight">
             <mat-radio-button class="radio-button" *ngFor="let weight of shipmentWeights" [value]="weight.id">
                 {{weight.desc}}
             </mat-radio-button>
         </mat-radio-group>
     </div>
-    <div class="radio-btn-wrapper">
+    <div class="radio-btn-wrapper flex flex-col">
         <label id="shipment-type-group-label">{{ buttonText }} Shipment Type:</label>
-        <mat-radio-group aria-labelledby="shipment-type-label" class="radio-group" [(ngModel)]="selectedShipmentType">
+        <mat-radio-group aria-labelledby="shipment-type-label" class="radio-group flex flex-col" [(ngModel)]="selectedShipmentType" required>
             <mat-radio-button class="radio-button" *ngFor="let type of shipmentType" [value]="type.id">
                 {{type.name}}
             </mat-radio-button>
         </mat-radio-group>
     </div>
 
-    <div class="shipment-tracking-checkbox-wrapper">
+    <div class="shipment-tracking-checkbox-wrapper flex flex-col">
         <label id="shipment-tracking-status">{{ buttonText }}Select Shipment Tracking:</label>
-        <mat-checkbox class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentOrigin">Origin</mat-checkbox>
+        <mat-checkbox [required] = "btnRequired" class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentOrigin">Origin</mat-checkbox>
         <mat-checkbox class="shipment-tracking-checkbox" [(ngModel)]="selectedShipmentDestination">Destination</mat-checkbox>
         <mat-checkbox class="shipment-tracking-checkbox" [(ngModel)]="shipmentdelivered">Delivered</mat-checkbox>
     </div>
