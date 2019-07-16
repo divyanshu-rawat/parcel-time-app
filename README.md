@@ -17,6 +17,14 @@ Filters Workflow.
 ![alt tag](https://github.com/divyanshu-rawat/Post-Office-App/blob/master/AppDesign/filtersWorkflow.gif)
 
 
+## Technology Stack
+##### Components
+* HTML - Structure of the web page generated.
+* CSS - Styling options and details of the web page.
+* Angular 6 - Structure for deployment of the web page.
+* Angular Material - . Hit the ground running with comprehensive, modern UI components.
+
+
 ### Post Office App Folder Structure
 
 After creation and a successful build, your project should have the following file structure:
